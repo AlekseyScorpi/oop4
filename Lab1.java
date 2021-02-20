@@ -19,25 +19,11 @@ public class Lab1 {
         String xCoord = "";
         String yCoord = "";
         String zCoord = "";
-        for (int i = 0; i < str.length(); i++){
-            if (str.charAt(i) == ' '){
-                break;
-            }
-            xCoord += str.charAt(i);
-        }
-        for (int i = xCoord.length() + 1; i < str.length(); i++){
-            if (str.charAt(i) == ' '){
-                break;
-            }
-            yCoord += str.charAt(i);
-        }
-        for (int i = xCoord.length() + yCoord.length() + 2; i < str.length(); i++){
-            if (str.charAt(i) == ' '){
-                break;
-            }
-            zCoord += str.charAt(i);
-        }
+        String[] coord = str.split(" ");
         Point3d point = new Point3d();
+        xCoord = coord.length >= 1 ? coord[0] : "";
+        yCoord = coord.length >= 2 ? coord[1] : "";
+        zCoord = coord.length >= 3 ? coord[2] : "";
         if (xCoord != ""){
             point.setX(Double.parseDouble(xCoord));
         }
